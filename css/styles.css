@@ -12,24 +12,57 @@
 }
 
 /* == Body ==*/
-body {
+html, body {
     background-color: #f0f0f5;
+    color: white;
+    margin: 0;
 }
-
-h1,
-h4 {
+p {
+	color: black;
+}
+h1, h3, h4, h5 {
     font-family: 'Oswald', sans-serif;
+    color: black;
 }
 
 ul li {
     list-style: none;
 }
 
+/* == Jumbotron ==*/
+.container{
+	position: relative;
+	height: 400px;
+	width: 100%;
+	margin: 0;
+}
+.jumbotron {
+	background: url('../images/guitar.jpg') no-repeat;
+	background-size: 100%;
+	height: 350px;
+	width: 100%;
+}
+.jumbotron h1 {
+
+	font-size: 80px;
+	color: white;
+	padding-left: 15px;
+	text-shadow: 2px 2px 2px #000;
+}
+
+.jumbotron p {
+	color: white;
+	padding-left: 15px;
+	text-shadow: 2px 2px 2px #000;
+}
+
 /* == Search Results List ==*/
 .songListItem {
     display: inline-block;
     padding: 15px;
-    vertical-align: baseline;
+    vertical-align: top;
+    box-sizing: border-box;
+    margin: 5px;
 }
 
 /* == Scrolling ==*/
