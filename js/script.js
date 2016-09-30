@@ -1,41 +1,54 @@
 $(document).ready(function() {
 
-    $("#searchButton").click(function() {
+	//Click Event
+    $( "#searchButton").click( function(){
+    	search();
+    });
 
+    // "ENTER" key press event
+    $( "input" ).keypress( function(){
+	    if (event.which == 13 || event.keyCode == 13) {
+	    	search();
+	    }
+	});
+
+    // Search
+    var search = function(){
         var userInput = $("#searchField").val();
-
         $.ajax({
             type: "GET",
             dataType: "jsonp",
             url: "https://itunes.apple.com/search?term=" + userInput + "&limit=25",
             success: function(data) {
-                // displayDataResults(data);
                 $("#searchField").val("");
-        		console.log(data);
+        		// console.log(data);
                 showOnPage(data, userInput);
             }
         });
-    });
+    }
 
+    // Render Elements
     var showOnPage = function(data, userInput) {
-        var dataItems = data.results;
-        var items = '';
+        var songInfoItems = createListItems(data);
+
+        // Show/Hide DOM
         $("#resultsLabel").fadeIn(200);
         $("#resultsCount").text("");
-        $("#resultsCount").text(data.resultCount + " results for " + userInput + ".");
+        $("#resultsCount").text(data.resultCount + " results for \"" + userInput + "\".");
         $("#searchResultsList").empty();
         $("#searchResultsList").fadeIn(200);
 
+        // Render
+        $('#searchResultsList').html(songInfoItems);
+    }
 
-        // dataItems.forEach(function(arrayElement) {
-        // 	$("#displaySearchResults").text(arrayElement);
-        //    console.log(arrayElement.collectionName);
-        // });
+    // Loop and Create elements
+    var createListItems = function(data){
+    	var dataItems = data.results;
+        var songInfoItems = '';
 
-        for (var i = 0; i < dataItems.length; i++) {
-            // var listItem = "<li>" + dataItems[i].collection_name + "</li>";
+    	for (var i = 0; i < dataItems.length; i++) {
             var item = dataItems[i];
-            // console.log(item.artworkUrl100);
             var songInfo = {
                 source: 0,
                 artwork_url: item.artworkUrl100,
@@ -47,45 +60,19 @@ $(document).ready(function() {
                 preview_url: item.previewUrl
             };
 
-            console.log(songInfo.artwork_url);
-
             dataItems[i] = songInfo;
-            items += "<img src=" + songInfo.artwork_url + "/>" + '<br>';
-            items += '<h4>' + songInfo.track_name + '</h4><br>';
-            items += songInfo.artist_name + '<br>';
-            items += songInfo.collection_name + '<br>';
-            items += songInfo.genre + '<br>';
-            items += songInfo.preview_url + '<br><br>';
+            songInfoItems += '<li class="songListItem">';
+            songInfoItems += '<img class="artWork" src=' + songInfo.artwork_url + '/>';
+            songInfoItems += '<p><video controls="" height="40" width="100%" name="media"><source src="' + songInfo.preview_url + '"type="audio/mp4"></video></p>';
+            songInfoItems += '<h4 class="songTrackName">' + songInfo.track_name + '</h4>';
+            songInfoItems += '<h5 class="artistname">' + songInfo.artist_name + '</h5>';
+            songInfoItems += '<p class="collenctionName">' + songInfo.collection_name + '</p>';
+            songInfoItems += '<p class="genre"><small>' + songInfo.genre + '</small></p>';
 
+            songInfoItems += "</li>";
         }
 
-        // var displayDataResults = function(data){
-        //     var dataItems = data.results;
-        //     var items = '';
-        //     for (var i = 0; i < dataItems.length; i++) {
-        //         var item = dataItems[i];
-        //         var songInfo = {
-        //             source: 0,
-        //             artwork_url: item.artworkUrl1100,
-        //             track_name: item.trackCensoredName,
-        //             artist_name: item.artistName,
-        //             collection_name: item.collectionCensoredName,
-        //             genre: item.primaryGenreName,
-        //             release_date: item.releaseDate,
-        //             preview_url: item.previewUrl
-        //         };
-
-        //         dataItems[i] = songInfo;
-        //         items += songInfo.artwork_url + '<br>';
-        //         items += '<h4>' + songInfo.track_name + '</h4><br>';
-        //         items += songInfo.artist_name + '<br>';
-        //         items += songInfo.collection_name + '<br>';
-        //         items += songInfo.genre + '<br>';
-        //         items += songInfo.preview_url + '<br><br>';
-        //     }
-        $('#searchResultsList').html(items);
-        // }
-
+        return songInfoItems;
     }
 
 });
