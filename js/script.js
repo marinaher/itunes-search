@@ -1,19 +1,19 @@
 $(document).ready(function() {
 
-	//Click Event
-    $( "#searchButton").click( function(){
-    	search();
+    //Click Event
+    $("#searchButton").click(function() {
+        search();
     });
 
     // "ENTER" key press event
-    $( "input" ).keypress( function(){
-	    if (event.which == 13 || event.keyCode == 13) {
-	    	search();
-	    }
-	});
+    $("input").keypress(function() {
+        if (event.which == 13 || event.keyCode == 13) {
+            search();
+        }
+    });
 
     // Search
-    var search = function(){
+    var search = function() {
         var userInput = $("#searchField").val();
         $.ajax({
             type: "GET",
@@ -21,7 +21,7 @@ $(document).ready(function() {
             url: "https://itunes.apple.com/search?term=" + userInput + "&limit=25",
             success: function(data) {
                 $("#searchField").val("");
-        		// console.log(data);
+                // console.log(data);
                 showOnPage(data, userInput);
             }
         });
@@ -43,11 +43,11 @@ $(document).ready(function() {
     }
 
     // Loop and Create elements
-    var createListItems = function(data){
-    	var dataItems = data.results;
+    var createListItems = function(data) {
+        var dataItems = data.results;
         var songInfoItems = '';
 
-    	for (var i = 0; i < dataItems.length; i++) {
+        for (var i = 0; i < dataItems.length; i++) {
             var item = dataItems[i];
             var songInfo = {
                 source: 0,
@@ -62,7 +62,7 @@ $(document).ready(function() {
 
             dataItems[i] = songInfo;
             songInfoItems += '<li class="songListItem">';
-            songInfoItems += '<img class="artWork" src=' + songInfo.artwork_url + '/>';
+            songInfoItems += '<img class="artWork" src=' + songInfo.artwork_url.replace('100x100' , '260x260') + '/>';
             songInfoItems += '<p><video controls="" height="40" width="100%" name="media"><source src="' + songInfo.preview_url + '"type="audio/mp4"></video></p>';
             songInfoItems += '<h4 class="songTrackName">' + songInfo.track_name + '</h4>';
             songInfoItems += '<h5 class="artistname">' + songInfo.artist_name + '</h5>';
@@ -75,4 +75,18 @@ $(document).ready(function() {
         return songInfoItems;
     }
 
+//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 250) {
+			$('.scrollToTop').fadeIn();
+		} else {
+			$('.scrollToTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.scrollToTop').click(function(){
+		$('html, body').animate({scrollTop : 0}, 1000);
+		return false;
+	});
 });

@@ -1,12 +1,51 @@
 /* == SearchBar and iTunesSearch Header ==*/
-#resultsLabel{
-	display: none;
+#resultsLabel {
+    display: none;
 }
-.input-group-button{
-	display: inline-block;
+
+.input-group {
+    font-family: 'Oswald', sans-serif;
+}
+
+.input-group-button {
+    display: inline-block;
 }
 
 /* == Body ==*/
-ul li{
-	list-style: none;
+body {
+    background-color: #f0f0f5;
+}
+
+h1,
+h4 {
+    font-family: 'Oswald', sans-serif;
+}
+
+ul li {
+    list-style: none;
+}
+
+/* == Search Results List ==*/
+.songListItem {
+    display: inline-block;
+    padding: 15px;
+    vertical-align: baseline;
+}
+
+/* == Scrolling ==*/
+#backToTop {
+    bottom: 20px;
+    position: fixed;
+    right: 2%;
+    z-index: 100;
+}
+
+.scrollToTop {
+    display: none;
+}
+
+.scrollToTop img {
+    border: 0;
+    height: 35px;
+    width: 35px;
 }
