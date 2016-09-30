@@ -1,3 +1,12 @@
+/* == SearchBar and iTunesSearch Header ==*/
 #resultsLabel{
 	display: none;
+}
+.input-group-button{
+	display: inline-block;
+}
+
+/* == Body ==*/
+ul li{
+	list-style: none;
 }
