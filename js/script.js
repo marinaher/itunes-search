@@ -18,7 +18,7 @@ $(document).ready(function() {
         $.ajax({
             type: "GET",
             dataType: "jsonp",
-            url: "https://itunes.apple.com/search?term=" + userInput + "&limit=25",
+            url: "https://itunes.apple.com/search?term=" + userInput + "&limit=50",
             success: function(data) {
                 $("#searchField").val("");
                 // console.log(data);
@@ -62,7 +62,7 @@ $(document).ready(function() {
 
             dataItems[i] = songInfo;
             songInfoItems += '<li class="songListItem col-sm-6 col-md-3 flex-item">';
-            songInfoItems += '<img class="artWork" src=' + songInfo.artwork_url.replace('100x100' , '260x260') + '/>';
+            songInfoItems += '<img class="artWork" src=' + songInfo.artwork_url.replace('100x100', '260x260') + '/>';
             songInfoItems += '<p><video controls="" height="40" width="100%" name="media"><source src="' + songInfo.preview_url + '"type="audio/mp4"></video></p>';
             songInfoItems += '<h4 class="songTrackName">' + songInfo.track_name + '</h4>';
             songInfoItems += '<h5 class="artistname">' + songInfo.artist_name + '</h5>';
@@ -75,18 +75,25 @@ $(document).ready(function() {
         return songInfoItems;
     }
 
-//Check to see if the window is top if not then display button
-	$(window).scroll(function(){
-		if ($(this).scrollTop() > 250) {
-			$('.scrollToTop').fadeIn();
-		} else {
-			$('.scrollToTop').fadeOut();
-		}
-	});
-	
-	//Click event to scroll to top
-	$('.scrollToTop').click(function(){
-		$('html, body').animate({scrollTop : 0}, 1000);
-		return false;
-	});
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 250) {
+            $('.scrollToTop').fadeIn();
+        } else {
+            $('.scrollToTop').fadeOut();
+        }
+    });
+
+    //Pagination
+    $('#placeholder').easyPaginate({
+        paginateElement: 'li',
+        elementsPerPage: 16,
+        effect: 'default'
+    });
+
+    //Click event to scroll to top
+    $('.scrollToTop').click(function() {
+        $('html, body').animate({ scrollTop: 0 }, 1000);
+        return false;
+    });
 });

@@ -50,6 +50,7 @@ ul li {
 
 .jumbotron {
     background: url('../images/guitar.jpg') no-repeat;
+    /*background-color: #2e6686;*/
     background-size: 100%;
     height: 350px;
     width: 100%;
@@ -77,34 +78,53 @@ ul li {
 }
 
 #searchResultsList {
-	overflow: hidden;
+    overflow: hidden;
     margin: 0 auto;
     padding: 0;
     width: 75%
 }
+
 .songListItem {
-	display: inline-table;
+    display: inline-table;
 }
 
 .flex-container {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
 }
 
 .flex-item {
-  padding: 5px;
-  width: 250px;
-  height: 150px;
-  margin-top: 10px;
+    padding: 5px;
+    width: 250px;
+    height: 150px;
+    margin-top: 10px;
 }
+
+/* == Pagination ==*/
+
+.easyPaginateNav a {
+   position: relative;
+   float: left;
+   padding: 8px 12px;
+   line-height: 1.42857143;
+   text-decoration: none;
+   color: #ffffff ;
+   background-color: #222222 ;
+   border: 1px solid #282828 ;
+   margin-left: -1px;
+   }
+  .easyPaginateNav a.current {
+    font-weight:bold;
+    text-decoration:underline;
+  }
 
 /* == Scrolling ==*/
 
