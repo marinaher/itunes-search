@@ -1,4 +1,5 @@
 /* == SearchBar and iTunesSearch Header ==*/
+
 #resultsLabel {
     display: none;
 }
@@ -11,16 +12,24 @@
     display: inline-block;
 }
 
+
 /* == Body ==*/
-html, body {
+
+html,
+body {
     background-color: #f0f0f5;
     color: white;
     margin: 0;
 }
+
 p {
-	color: black;
+    color: black;
 }
-h1, h3, h4, h5 {
+
+h1,
+h3,
+h4,
+h5 {
     font-family: 'Oswald', sans-serif;
     color: black;
 }
@@ -29,43 +38,76 @@ ul li {
     list-style: none;
 }
 
-/* == Jumbotron ==*/
-.container{
-	position: relative;
-	height: 400px;
-	width: 100%;
-	margin: 0;
-}
-.jumbotron {
-	background: url('../images/guitar.jpg') no-repeat;
-	background-size: 100%;
-	height: 350px;
-	width: 100%;
-}
-.jumbotron h1 {
 
-	font-size: 80px;
-	color: white;
-	padding-left: 15px;
-	text-shadow: 2px 2px 2px #000;
+/* == Jumbotron ==*/
+
+.container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin: 0;
+}
+
+.jumbotron {
+    background: url('../images/guitar.jpg') no-repeat;
+    background-size: 100%;
+    height: 350px;
+    width: 100%;
+}
+
+.jumbotron h1 {
+    font-size: 80px;
+    color: white;
+    padding-left: 15px;
+    text-shadow: 2px 2px 2px #000;
 }
 
 .jumbotron p {
-	color: white;
-	padding-left: 15px;
-	text-shadow: 2px 2px 2px #000;
+    color: white;
+    padding-left: 15px;
+    text-shadow: 2px 2px 2px #000;
 }
 
+
 /* == Search Results List ==*/
+
+.artWork {
+    vertical-align: middle;
+    width: 100%
+}
+
+#searchResultsList {
+	overflow: hidden;
+    margin: 0 auto;
+    padding: 0;
+    width: 75%
+}
 .songListItem {
-    display: inline-block;
-    padding: 15px;
-    vertical-align: top;
-    box-sizing: border-box;
-    margin: 5px;
+	display: inline-table;
+}
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.flex-item {
+  padding: 5px;
+  width: 250px;
+  height: 150px;
+  margin-top: 10px;
 }
 
 /* == Scrolling ==*/
+
 #backToTop {
     bottom: 20px;
     position: fixed;

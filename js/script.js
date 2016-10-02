@@ -61,7 +61,7 @@ $(document).ready(function() {
             };
 
             dataItems[i] = songInfo;
-            songInfoItems += '<li class="songListItem">';
+            songInfoItems += '<li class="songListItem col-sm-6 col-md-3 flex-item">';
             songInfoItems += '<img class="artWork" src=' + songInfo.artwork_url.replace('100x100' , '260x260') + '/>';
             songInfoItems += '<p><video controls="" height="40" width="100%" name="media"><source src="' + songInfo.preview_url + '"type="audio/mp4"></video></p>';
             songInfoItems += '<h4 class="songTrackName">' + songInfo.track_name + '</h4>';
