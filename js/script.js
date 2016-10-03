@@ -18,7 +18,7 @@ $(document).ready(function() {
     });
 
     $('#showMore').click(function() {
-        showOnPage();
+    	showOnPage();
     });
 
     // Search

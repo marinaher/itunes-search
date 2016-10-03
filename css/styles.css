@@ -21,6 +21,10 @@ p {
 ul li {
     list-style: none;
 }
+.videoYoutube {
+	height: 50px;
+	width: 50%;
+}
 
 /* == SearchBar and iTunesSearch Header ==*/
 #resultsLabel {
@@ -34,6 +38,10 @@ ul li {
 .input-group-button {
     display: inline-block;
 }
+#pageNav {
+	float: right; 
+	margin-left: -5px;
+}
 
 /* == Jumbotron ==*/
 .container {
@@ -44,9 +52,9 @@ ul li {
 }
 
 .jumbotron {
-    background-color: #579695;
-    /*background-image: url("../images/guitar.jpg");*/
-    background-size: 100%;
+    /*background-color: #579695;*/
+    background-image: url("../images/guitar.jpg");
+    background-size: cover;
     font-family: 'Oswald', sans-serif;
     height: 350px;
     width: 100%;
@@ -54,14 +62,16 @@ ul li {
 
 .jumbotron h1 {
     font-size: 80px;
-    color: black;
+    color: white;
     text-align: center;
+    text-shadow: 2px 2px 2px #000;
 }
 
 .jumbotron p {
 	font-family: 'Gudea', sans-serif;
-    color: #080808;
+	color: white;
     text-align: center;
+    text-shadow: 2px 2px 2px #000;
 }
 
 /* == Search Results List ==*/
@@ -120,7 +130,7 @@ ul li {
 
 /* == Scrolling ==*/
 #backToTop {
-    bottom: 20px;
+    bottom: 40px;
     position: fixed;
     right: 2%;
     z-index: 100;
