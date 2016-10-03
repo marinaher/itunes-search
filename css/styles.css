@@ -1,5 +1,28 @@
-/* == SearchBar and iTunesSearch Header ==*/
+/* == Body ==*/
+html,
+body {
+    background-color: #f2f2f2;
+    /*color: white;*/
+    margin: 0;
+}
 
+h1,
+h3,
+h4,
+h5 {
+    font-family: 'Oswald', sans-serif;
+    color: black;
+}
+
+p {
+    color: black;
+}
+
+ul li {
+    list-style: none;
+}
+
+/* == SearchBar and iTunesSearch Header ==*/
 #resultsLabel {
     display: none;
 }
@@ -12,35 +35,7 @@
     display: inline-block;
 }
 
-
-/* == Body ==*/
-
-html,
-body {
-    background-color: #f0f0f5;
-    color: white;
-    margin: 0;
-}
-
-p {
-    color: black;
-}
-
-h1,
-h3,
-h4,
-h5 {
-    font-family: 'Oswald', sans-serif;
-    color: black;
-}
-
-ul li {
-    list-style: none;
-}
-
-
 /* == Jumbotron ==*/
-
 .container {
     position: relative;
     height: 400px;
@@ -49,29 +44,27 @@ ul li {
 }
 
 .jumbotron {
-    background: url('../images/guitar.jpg') no-repeat;
-    /*background-color: #2e6686;*/
+    background-color: #579695;
+    /*background-image: url("../images/guitar.jpg");*/
     background-size: 100%;
+    font-family: 'Oswald', sans-serif;
     height: 350px;
     width: 100%;
 }
 
 .jumbotron h1 {
     font-size: 80px;
-    color: white;
-    padding-left: 15px;
-    text-shadow: 2px 2px 2px #000;
+    color: black;
+    text-align: center;
 }
 
 .jumbotron p {
-    color: white;
-    padding-left: 15px;
-    text-shadow: 2px 2px 2px #000;
+	font-family: 'Gudea', sans-serif;
+    color: #080808;
+    text-align: center;
 }
 
-
 /* == Search Results List ==*/
-
 .artWork {
     vertical-align: middle;
     width: 100%
@@ -81,7 +74,7 @@ ul li {
     overflow: hidden;
     margin: 0 auto;
     padding: 0;
-    width: 75%
+    width: 80%
 }
 
 .songListItem {
@@ -109,7 +102,6 @@ ul li {
 }
 
 /* == Pagination ==*/
-
 .easyPaginateNav a {
    position: relative;
    float: left;
@@ -127,7 +119,6 @@ ul li {
   }
 
 /* == Scrolling ==*/
-
 #backToTop {
     bottom: 20px;
     position: fixed;
