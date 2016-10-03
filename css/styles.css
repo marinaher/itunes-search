@@ -52,7 +52,6 @@ ul li {
 }
 
 .jumbotron {
-    /*background-color: #579695;*/
     background-image: url("../images/guitar.jpg");
     background-size: cover;
     font-family: 'Oswald', sans-serif;
